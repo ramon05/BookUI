@@ -1,17 +1,26 @@
 <mat-card class="book-details-card">
-    <mat-card-header>
-      <mat-card-title>{{ book.title }}</mat-card-title>
-      <mat-card-subtitle>Publicado el {{ book.publishDate | date:'longDate' }}</mat-card-subtitle>
-    </mat-card-header>
-  
-    <mat-card-content>
-      <p><strong>Descripción:</strong> {{ book.description }}</p>
-      <p><strong>Extracto:</strong> "{{ book.excerpt }}"</p>
-      <p><strong>Número de páginas:</strong> {{ book.pageCount }}</p>
-    </mat-card-content>
-  
-    <mat-card-actions align="end">
-      <button mat-button color="primary" (click)="closeDialog()">Cerrar</button>
-    </mat-card-actions>
+  <mat-card-header>
+    <mat-card-title>{{ book.title || 'Título no disponible' }}</mat-card-title>
+    <mat-card-subtitle>
+      Publicado el {{ book.publishDate ? (book.publishDate | date:'longDate') : 'Fecha no disponible' }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <section *ngIf="book?.description">
+      <h3>Descripción:</h3>
+      <p>{{ book.description }}</p>
+    </section>
+
+    <section *ngIf="book?.excerpt">
+      <h3>Extracto:</h3>
+      <blockquote>{{ book.excerpt }}</blockquote>
+    </section>
+
+    <p><strong>Número de páginas:</strong> {{ book.pageCount || 'No especificado' }}</p>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-button color="primary" (click)="closeDialog()">Cerrar</button>
+  </mat-card-actions>
 </mat-card>
-  
