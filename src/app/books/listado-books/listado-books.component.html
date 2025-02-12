@@ -31,14 +31,14 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef class="acciones-column"> Acciones </th>
       <td mat-cell *matCellDef="let book" class="acciones-column">
-        <button mat-stroked-button color="primary" (click)="openCreateBookModal(book)">
-          ✏️ Editar
+        <button  mat-button (click)="openCreateBookModal(book)" matTooltip="Editar libro" matTooltipPosition="above">
+          ✏️ 
         </button>
-        <button mat-stroked-button color="warn" (click)="deleteBook(book.id)">
-          ❌ Eliminar
+        <button  mat-button (click)="deleteBook(book.id)" matTooltip="Eliminar libro" matTooltipPosition="above">
+          ❌ 
         </button>
-        <button mat-stroked-button color="accent" (click)="openBookDetails(book.id)">
-          🔍 Ver Detalles
+        <button  mat-button (click)="openBookDetails(book.id)"  matTooltip="Ver detalles" matTooltipPosition="above">
+          🔍 
         </button>
       </td>
     </ng-container>

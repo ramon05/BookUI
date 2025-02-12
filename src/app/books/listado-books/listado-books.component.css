@@ -29,13 +29,6 @@
   .acciones-column {
     text-align: center;
   }
-
-  .table-container {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
   
   h3 {
     font-size: 20px;
@@ -97,6 +90,32 @@
     margin-bottom: 15px;
   }
   
+  .custom-table {
+    width: 100%;
+    table-layout: fixed;
+  }
   
+  .custom-table th, .custom-table td {
+    white-space: nowrap;
+    padding: 8px 12px;
+    text-align: center;
+  }
+  
+  /* Ajustar el ancho de cada columna */
+  .custom-table .mat-column-title,
+  .custom-table .mat-column-pageCount,
+  .custom-table .mat-column-publishDate {
+    width: 22%; /* Menos espacio para estas columnas */
+  }
+  
+  .custom-table .mat-column-actions {
+    width: 34%; /* Más espacio para los botones */
+    text-align: center;
+  }
+  
+  /* Asegura que los botones no se recorten */
+  .custom-table .mat-column-actions button {
+    min-width: 36px; /* Asegura que los botones tengan un tamaño mínimo */
+  }
   
   
