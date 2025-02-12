@@ -24,4 +24,12 @@ export class ListadoBooksComponent implements OnInit {
     });
   }
 
+  deleteBook(id: number) {
+    if (confirm('¿Seguro que deseas eliminar este libro?')) {
+      this.bookservice.deleteBook(id).subscribe(() => {
+        this.books = this.books.filter(book => book.id !== id);
+      });
+    }
+  }
+
 }
