@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../services/books.service';
 import { Book } from '../../models/Book';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateBookComponent } from '../crear-book/crear-book.component';
 
 @Component({
   selector: 'app-listado-books',
@@ -9,10 +11,13 @@ import { Book } from '../../models/Book';
 })
 export class ListadoBooksComponent implements OnInit {
 
-  public books!: Book[];
+  public books: Book[] = [];
   displayedColumns: string[] = ['title', 'pageCount', 'publishDate', 'actions'];
 
-  constructor(public bookservice: BooksService ) {}
+  constructor(
+    public bookservice: BooksService,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {
     this.LeerListado();
@@ -21,6 +26,19 @@ export class ListadoBooksComponent implements OnInit {
   LeerListado(){
     this.bookservice.getBooks().subscribe((data) => {
       this.books = data;
+    });
+  }
+
+  // Método para abrir el modal con el componente CreateBookComponent
+  openCreateBookModal() {
+    const dialogRef = this.dialog.open(CreateBookComponent, {
+      width: '600px',  // Puedes ajustar el tamaño del modal
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Modal closed with result:', result);
+      }
     });
   }
 

@@ -7,29 +7,45 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [],
     imports: [
+        CommonModule,
         MatTableModule,
-        MatButtonModule,
-        CommonModule, 
-        MatIconModule,
         MatPaginatorModule,
         MatSortModule,
-        MatCardModule,
         MatToolbarModule,
-        CommonModule
+        MatFormFieldModule,
+        MatInputModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatDialogModule,
+        BrowserAnimationsModule
     ],
     exports: [
         MatTableModule,
         MatButtonModule,
+        MatInputModule,
         MatIconModule,
         MatPaginatorModule,
         MatSortModule,
         MatCardModule,
         MatToolbarModule,
-        CommonModule
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatDialogModule,
+        BrowserAnimationsModule
     ]
   })
   export class MaterialModule { }
