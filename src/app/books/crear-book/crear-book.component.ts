@@ -14,6 +14,7 @@ export class CreateBookComponent implements OnInit {
 
   bookForm!: FormGroup;  // Sin el '!' ya que la inicialización está garantizada
   bookToEdit: Book | null = null;
+  Titulo = "Add New Book"
 
   constructor(
     private fb: FormBuilder,
@@ -24,6 +25,10 @@ export class CreateBookComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookToEdit = this.data.book;
+
+    if(this.bookToEdit?.title.length){
+      this.Titulo = "Edit Book";
+    }
 
     this.bookForm = this.fb.group({
       title: [this.bookToEdit?.title || '', Validators.required],
