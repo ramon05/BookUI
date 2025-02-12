@@ -4,11 +4,12 @@ import { MaterialModule } from '../materials/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListadoBooksComponent } from './listado-books/listado-books.component';
 import { CreateBookComponent } from './crear-book/crear-book.component';
+import { DetalleBookComponent } from './detalle-book/detalle-book.component';
 
 
 
 @NgModule({
-  declarations: [ListadoBooksComponent, CreateBookComponent],
+  declarations: [ListadoBooksComponent, CreateBookComponent, DetalleBookComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
